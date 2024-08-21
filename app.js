@@ -35,7 +35,7 @@ async function start() {
     let arrayNumbers = [];
     const files = await readDirAsync(filesDir);
     for (const filePath of files) {
-      const dataFromFile = await readFileAsync(`files/${filePath}`, 'utf8');
+      const dataFromFile = await readFileAsync(path.join(filesDir, filePath), 'utf8');
       const numbersFromFile = getNumbersFromString(dataFromFile);
       arrayNumbers = [...arrayNumbers, ...numbersFromFile];
     }
